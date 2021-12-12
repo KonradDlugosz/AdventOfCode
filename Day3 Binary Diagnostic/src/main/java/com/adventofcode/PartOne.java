@@ -1,13 +1,10 @@
 package com.adventofcode;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.List;
+import static com.adventofcode.ReadFile.binary;
+import static com.adventofcode.ReadFile.readInput;
 
-public class DayThreeBinaryDiagnostic {
+public class PartOne {
 
-    private static List<String> binary;
     private static String gammaRate = "";
     private static String epsilonRate = "";
 
@@ -16,6 +13,7 @@ public class DayThreeBinaryDiagnostic {
         rate(0);
         rate(1);
 
+        //Binary to Decimal > Integer.parseInt(String , 2)
         int powerConsumption = Integer.parseInt(gammaRate,2) * Integer.parseInt(epsilonRate,2);
         System.out.println(powerConsumption);
     }
@@ -51,15 +49,4 @@ public class DayThreeBinaryDiagnostic {
         }
     }
 
-
-
-    public static void readInput(){
-        try {
-            binary = Files
-                    .readAllLines(Path.of("input.txt"));
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
